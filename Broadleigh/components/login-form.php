@@ -40,18 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $message = "Please fix the above errors.";
     }
 }
-
-// On other pages, you can check for the cookie like this:
-if (isset($_COOKIE['user_session'])) {
-    $sessionToken = $_COOKIE['user_session'];
-    // Validate the session token against the database
-    $user = $controllers->members()->validate_session($sessionToken);
-    if ($user) {
-        $_SESSION['user'] = $user;
-    } else {
-        // Invalid session token, handle accordingly
-    }
-}
 ?>
 
 <form method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>">

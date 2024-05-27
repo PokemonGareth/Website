@@ -24,24 +24,9 @@ if (isset($_SESSION['user'])) {
     require __DIR__ . "/inc/header.php"; 
 ?>
 
-<section class="vh-100 text-center">
-<a href="logout.php"><button type="button">Logout</button></a>
-    <div class="container py-5 h-75">
+<a href="member.php"><button type="button">Back</button></a>
 
-<h1>Welcome <?= $_SESSION['user']['firstname'] ?? 'Member' ?>!</h1>
+<h1>View Users</h1>
 
-
-<?php // Check if the user is logged in and has the admin role
-if (isset($_SESSION['user']) && $_SESSION['user']['IsAdmin'] === '1') {
-    // User is logged in and is an admin
-    echo '<a href="A-ViewReviews.php"><button type="button">View Reviews</button></a>';
-    echo '<a href="A-ViewUsers.php"><button type="button">View Users</button></a>';
-    echo '<a href="A-ViewProducts.php"><button type="button">View Products</button></a>';
-} else {
-    echo '<button type="button">Your Reviews</button>';
-}
-?>
-</div>
-</section>
 
 <?php require __DIR__ . "/inc/footer.php"; ?>

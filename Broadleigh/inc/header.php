@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <title> <?= $title ?? 'Welcome' ?> </title>
   </head>
+  
   <body class="bg-primary">
 
   <nav class="navbar navbar-expand-lg navbar-light bg-dark">
