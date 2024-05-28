@@ -28,7 +28,7 @@ require __DIR__ . "/inc/header.php";
 
 <section class="vh-100 text-center">
     <div class="container py-5 h-75">
-        
+
 <a href="member.php"><button type="button">Back</button></a>
 
 <h1>View Products</h1>
@@ -59,6 +59,7 @@ try {
             echo '<td>' . htmlspecialchars($product['description']) . '</td>';
             echo '<td>' . htmlspecialchars($product['price']) . '</td>';
             echo '<td><img src="' . htmlspecialchars($product['image']) . '" alt="Product Image" style="width:50px;height:50px;"></td>';
+            echo '<td><a href="ConfirmdeleteProduct.php?id=' . htmlspecialchars($product['id']) . '"><button type="button">Delete</button></a></td>';
             echo '</tr>';
         }
         echo '</table>';
