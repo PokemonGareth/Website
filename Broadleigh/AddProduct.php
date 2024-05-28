@@ -1,12 +1,12 @@
 <?php
-// Start the session
+// Starts the session
 session_start();
 
 require_once 'inc/functions.php';
 require_once __DIR__ . '/classes/DatabaseController.php';
 require_once __DIR__ . '/classes/ProductController.php';
 
-// Access the session
+// Accesses the session
 if (!isset($_SESSION['user'])) {
     redirect('login', ["error" => "You need to be logged in to view this page"]);
 }
@@ -23,13 +23,13 @@ try {
     $productController = new ProductController($dbController);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // Get the details from the form
+        // Gets the details from the form
         $name = $_POST['name'];
         $description = $_POST['description'];
         $price = $_POST['price'];
-        $image = $_POST['image']; // Ideally, you should handle file uploads and store the image properly
+        $image = $_POST['image']; // NEED TO WORK OUT ANOTHER WAY OF RECIEVING AND STORING THE IMAGES
 
-        // Add the product to the database
+        // Adds the product to the database
 $productDetails = [
     'name' => $name,
     'description' => $description,
@@ -39,7 +39,7 @@ $productDetails = [
 $productController->create_product($productDetails);
 
 
-        // Redirect back to the product listing page
+        // Redirects back to the view products page
         header('Location: A-ViewProducts.php');
         exit;
     }

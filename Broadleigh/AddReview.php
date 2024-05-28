@@ -1,12 +1,12 @@
 <?php
-// Start the session
+// Starts the session
 session_start();
 
 require_once 'inc/functions.php';
 require_once __DIR__ . '/classes/DatabaseController.php';
 require_once __DIR__ . '/classes/ReviewController.php';
 
-// Access the session
+// Accesses the session
 if (!isset($_SESSION['user'])) {
     redirect('login', ["error" => "You need to be logged in to view this page"]);
 }
@@ -23,12 +23,12 @@ try {
     $ReviewController = new ReviewController($dbController);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // Get the details from the form
+        // Gets the details from the form
         $Userid = $_POST['Userid'];
         $Content = $_POST['Content'];
         $Stars = $_POST['Stars'];
 
-        // Add the Review to the database
+        // Adds the Review to the database
         $ReviewDetails = [
             'Userid' => $Userid,
             'Content' => $Content,
@@ -37,7 +37,7 @@ try {
         $ReviewController->create_Review($ReviewDetails);
 
 
-        // Redirect back to the Review listing page
+        // Redirects back to the view reviews page
         header('Location: A-ViewReviews.php');
         exit;
     }

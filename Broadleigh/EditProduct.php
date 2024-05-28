@@ -1,5 +1,5 @@
 <?php
-// Start the session
+// Starts the session
 session_start();
 
 require_once 'inc/functions.php';
@@ -14,7 +14,7 @@ if (!isset($_SESSION['user'])) {
 $title = 'Edit Product'; 
 require __DIR__ . "/inc/header.php"; 
 
-// Get the product ID from the URL
+// Gets the product ID from the URL
 $product_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 if ($product_id == 0) {
@@ -30,7 +30,7 @@ try {
     $dbController = new DatabaseController($dsn, $username, $password);
     $productController = new ProductController($dbController);
 
-    // Fetch the product details
+    // Fetches the product details
     $product = $productController->get_product_by_id($product_id);
 
     if (!$product) {
@@ -39,16 +39,16 @@ try {
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // Get the updated details from the form
+        // Gets the updated details from the form
         $name = $_POST['name'];
         $description = $_POST['description'];
         $price = $_POST['price'];
         $image = $_POST['image']; // Ideally, you should handle file uploads and store the image properly
 
-        // Update the product details
+        // Updates the product details
         $productController->update_product($product_id, $name, $description, $price, $image);
 
-        // Redirect back to the product listing page
+        // Redirects back to the view products page
         header('Location: A-ViewProducts.php');
         exit;
     }

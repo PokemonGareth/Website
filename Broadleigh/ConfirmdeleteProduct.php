@@ -1,5 +1,5 @@
 <?php
-// Start the session
+// Starts the session
 session_start();
 
 require_once 'inc/functions.php';
@@ -12,18 +12,17 @@ if (!isset($_GET['id'])) {
 
 $productID = $_GET['id'];
 
-// Define your DSN, username, and password
 $dsn = 'mysql:host=localhost;dbname=shop';
 $username = 'root';
 $password = '';
 
 try {
-    // Instantiate the database controller with the required arguments
+    // Signs into the database controller with the required arguments
     $dbController = new DatabaseController($dsn, $username, $password);
-    // Instantiate the product controller
+    // Instantiates the product controller
     $productController = new ProductController($dbController);
 
-    // Fetch the product by ID
+    // Fetches the product by ID
     $product = $productController->get_product_by_id($productID);
 
     if (!$product) {

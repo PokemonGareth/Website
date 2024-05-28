@@ -1,5 +1,5 @@
 
-<footer style="padding-left: auto; padding-right: auto;">
+<footer style="margin-left: auto; margin-right: auto;">
   <p>By GSearle Productions</p>
 
   <div id="Socials">

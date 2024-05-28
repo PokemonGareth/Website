@@ -22,15 +22,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             // Set a cookie for the user
             $cookieName = 'user_session';
-            $cookieValue = $member['session_token']; // Assuming you have a session token
+            $cookieValue = $member['session_token']; // Session token
             $cookieExpire = time() + (86400 * 30); // Cookie expires in 30 days
             setcookie($cookieName, $cookieValue, [
               'expires' => $cookieExpire,
               'path' => '/',
-              'domain' => '', // Set your domain
-              'secure' => true, // Ensure the cookie is sent over HTTPS
-              'httponly' => true, // Prevent JavaScript access
-              'samesite' => 'Lax' // Adjust according to your CSRF protection strategy
+              'domain' => '', // Sets domain
+              'secure' => true, // Ensures the cookie is sent over HTTPS
+              'httponly' => true, // Prevents JavaScript access
+              'samesite' => 'Lax' // Adjusts according to your CSRF protection strategy
           ]);
 
             $_SESSION['user'] = $member; 

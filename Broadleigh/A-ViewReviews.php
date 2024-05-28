@@ -1,21 +1,21 @@
 <?php 
-// Start the session at the beginning of your script
+// Starts the session at the beginning of your script
 session_start();
 
 require_once 'inc/functions.php';
 
-// Access the cookie
+// Accesses the cookie
 $cookieName = 'user_session';
 if (isset($_COOKIE[$cookieName])) {
     $userSessionToken = $_COOKIE[$cookieName];
-    // You can use this token to validate the session or retrieve user data from the database if needed
+    // Token to validate the session or retrieve user data from the database if needed
     echo "User session token from cookie: " . htmlspecialchars($userSessionToken);
 }
 
-// Access the session
+// Accesses the session
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
-    // Access user information stored in session
+    // Accesses user information stored in session
 } else {
     redirect('login', ["error" => "You need to be logged in to view this page"]);
 }
@@ -31,26 +31,24 @@ if (isset($_SESSION['user'])) {
 
 <h1>View Reviews</h1>
 
-<!-- Add button to redirect to the form page for adding a new User -->
 <a href="AddReview.php"><button type="button">Add Review</button></a>
 
 
 <?php
-// Define your DSN, username, and password
 $dsn = 'mysql:host=localhost;dbname=shop';
 $username = 'root';
 $password = '';
 
 try {
-    // Instantiate the database controller with the required arguments
+    // Signs into the database controller with the required arguments
     $dbController = new DatabaseController($dsn, $username, $password);
-    // Instantiate the Review controller
+    // Instantiates the Review controller
     $ReviewController = new ReviewController($dbController);
 
-    // Fetch all Reviews
+    // Fetches all Reviews
     $Reviews = $ReviewController->get_all_Reviews();
 
-    // Display the Reviews
+    // Displays the Reviews in rows
     if (!empty($Reviews)) {
         echo '<table>';
         echo '<tr><th>ID</th><th>User Id</th><th>Content</th><th>Stars</th></tr>';

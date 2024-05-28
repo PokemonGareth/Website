@@ -1,12 +1,12 @@
 <?php
-// Start the session
+// Starts the session
 session_start();
 
 require_once 'inc/functions.php';
 require_once __DIR__ . '/classes/DatabaseController.php';
 require_once __DIR__ . '/classes/MemberController.php';
 
-// Access the session
+// Accesses the session
 if (!isset($_SESSION['user'])) {
     redirect('login', ["error" => "You need to be logged in to view this page"]);
 }
@@ -14,7 +14,7 @@ if (!isset($_SESSION['user'])) {
 $title = 'Edit User'; 
 require __DIR__ . "/inc/header.php"; 
 
-// Get the User ID from the URL
+// Gets the User ID from the URL
 $User_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 if ($User_id == 0) {
@@ -30,7 +30,7 @@ try {
     $dbController = new DatabaseController($dsn, $username, $password);
     $UserController = new MemberController($dbController);
 
-    // Fetch the User details
+    // Fetches the User details
     $User = $UserController->get_member_by_id($User_id);
 
     if (!$User) {
@@ -39,16 +39,16 @@ try {
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // Get the updated details from the form
+        // Gets the updated details from the form
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $email = $_POST['email'];
         $IsAdmin = $_POST['IsAdmin'];
 
-        // Update the User details
+        // Updates the User details
         $UserController->update_member($User_id, $firstname, $lastname, $email, $IsAdmin);
 
-        // Redirect back to the User listing page
+        // Redirect back to the view users page
         header('Location: A-ViewUsers.php');
         exit;
     }

@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         redirect('product', ['id' => $id]);
       }
       else {
-        $message = "Error adding product."; //Change
+        $message = "Error adding product.";
       }
     }
     else {

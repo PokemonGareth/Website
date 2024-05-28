@@ -1,21 +1,21 @@
 <?php 
-// Start the session at the beginning of your script
+// Starts the session
 session_start();
 
 require_once 'inc/functions.php';
 
-// Access the cookie
+// Accesses the cookie
 $cookieName = 'user_session';
 if (isset($_COOKIE[$cookieName])) {
     $userSessionToken = $_COOKIE[$cookieName];
-    // You can use this token to validate the session or retrieve user data from the database if needed
+    // Token to validate the session or retrieve user data from the database if needed
     echo "User session token from cookie: " . htmlspecialchars($userSessionToken);
 }
 
-// Access the session
+// Accesses the session
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
-    // Access user information stored in session
+    // Accesses user information stored in session
 } else {
     redirect('login', ["error" => "You need to be logged in to view this page"]);
 }

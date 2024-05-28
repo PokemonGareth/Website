@@ -1,12 +1,12 @@
 <?php
-// Start the session
+// Starts the session
 session_start();
 
 require_once 'inc/functions.php';
 require_once __DIR__ . '/classes/DatabaseController.php';
 require_once __DIR__ . '/classes/ReviewController.php';
 
-// Access the session
+// Accesses the session
 if (!isset($_SESSION['user'])) {
     redirect('login', ["error" => "You need to be logged in to view this page"]);
 }
@@ -14,7 +14,7 @@ if (!isset($_SESSION['user'])) {
 $title = 'Edit Review'; 
 require __DIR__ . "/inc/header.php"; 
 
-// Get the Review ID from the URL
+// Gets the Review ID from the URL
 $Review_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 if ($Review_id == 0) {
@@ -30,7 +30,7 @@ try {
     $dbController = new DatabaseController($dsn, $username, $password);
     $ReviewController = new ReviewController($dbController);
 
-    // Fetch the Review details
+    // Fetches the Review details
     $Review = $ReviewController->get_review_by_id($Review_id);
 
     if (!$Review) {
@@ -39,15 +39,15 @@ try {
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // Get the updated details from the form
+        // Gets the updated details from the form
         $Userid = $_POST['Userid'];
         $Content = $_POST['Content'];
         $Stars = $_POST['Stars'];
 
-        // Update the Review details
+        // Updates the Review details
         $ReviewController->update_Review($Review_id, $Userid, $Content, $Stars);
 
-        // Redirect back to the Review listing page
+        // Redirect back to the view reviews page
         header('Location: A-ViewReviews.php');
         exit;
     }

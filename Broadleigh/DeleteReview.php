@@ -1,5 +1,5 @@
 <?php
-// Start the session
+// Starts the session
 session_start();
 
 require_once 'inc/functions.php';
@@ -12,18 +12,17 @@ if (!isset($_POST['id'])) {
 
 $ReviewID = $_POST['id'];
 
-// Define your DSN, username, and password
 $dsn = 'mysql:host=localhost;dbname=shop';
 $username = 'root';
 $password = '';
 
 try {
-    // Instantiate the database controller with the required arguments
+    // Signs into the database controller with the required arguments
     $dbController = new DatabaseController($dsn, $username, $password);
-    // Instantiate the Review controller
+    // Instantiates the Review controller
     $ReviewController = new ReviewController($dbController);
 
-    // Delete the Review by ID
+    // Deletes the Review by ID
     $ReviewController->delete_Review($ReviewID);
 
     redirect('A-ViewReviews', ["success" => "Review deleted successfully"]);

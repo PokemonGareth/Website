@@ -1,5 +1,5 @@
 <?php
-// Start the session
+// Starts the session
 session_start();
 
 require_once 'inc/functions.php';
@@ -12,18 +12,17 @@ if (!isset($_POST['id'])) {
 
 $productID = $_POST['id'];
 
-// Define your DSN, username, and password
 $dsn = 'mysql:host=localhost;dbname=shop';
 $username = 'root';
 $password = '';
 
 try {
-    // Instantiate the database controller with the required arguments
+    // Signs into the database controller with the required arguments
     $dbController = new DatabaseController($dsn, $username, $password);
-    // Instantiate the product controller
+    // Instantiates the product controller
     $productController = new ProductController($dbController);
 
-    // Delete the product by ID
+    // Deletes the product by ID
     $productController->delete_product($productID);
 
     redirect('A-ViewProducts', ["success" => "Product deleted successfully"]);
