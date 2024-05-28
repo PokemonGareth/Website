@@ -7,7 +7,7 @@ require_once __DIR__ . '/classes/DatabaseController.php';
 require_once __DIR__ . '/classes/ReviewController.php';
 
 if (!isset($_POST['id'])) {
-    redirect('member.php', ["error" => "No Review ID provided"]);
+    redirect('member', ["error" => "No Review ID provided"]);
 }
 
 $ReviewID = $_POST['id'];

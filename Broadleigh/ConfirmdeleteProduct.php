@@ -7,7 +7,7 @@ require_once __DIR__ . '/classes/DatabaseController.php';
 require_once __DIR__ . '/classes/ProductController.php';
 
 if (!isset($_GET['id'])) {
-    redirect('member.php', ["error" => "No product ID provided"]);
+    redirect('member', ["error" => "No product ID provided"]);
 }
 
 $productID = $_GET['id'];
@@ -26,7 +26,7 @@ try {
     $product = $productController->get_product_by_id($productID);
 
     if (!$product) {
-        redirect('member.php', ["error" => "Product not found"]);
+        redirect('member', ["error" => "Product not found"]);
     }
 
 } catch (PDOException $e) {

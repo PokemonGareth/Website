@@ -7,7 +7,7 @@ require_once __DIR__ . '/classes/DatabaseController.php';
 require_once __DIR__ . '/classes/MemberController.php';
 
 if (!isset($_GET['id'])) {
-    redirect('member.php', ["error" => "No User ID provided"]);
+    redirect('member', ["error" => "No User ID provided"]);
 }
 
 $memberID = $_GET['id'];
@@ -26,7 +26,7 @@ try {
     $User = $memberController->get_member_by_id($memberID);
 
     if (!$User) {
-        redirect('member.php', ["error" => "member not found"]);
+        redirect('member', ["error" => "member not found"]);
     }
 
 } catch (PDOException $e) {

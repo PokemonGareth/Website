@@ -7,7 +7,7 @@ require_once __DIR__ . '/classes/DatabaseController.php';
 require_once __DIR__ . '/classes/MemberController.php';
 
 if (!isset($_POST['id'])) {
-    redirect('member.php', ["error" => "No User ID provided"]);
+    redirect('member', ["error" => "No User ID provided"]);
 }
 
 $UserID = $_POST['id'];
