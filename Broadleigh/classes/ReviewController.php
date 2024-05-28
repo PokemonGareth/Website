@@ -19,11 +19,12 @@ class ReviewController {
     }
 
     public function get_Review_by_Userid(int $Userid)
-    {
-        $sql = "SELECT * FROM reviews WHERE Userid = :Userid";
-        $args = ['Userid' => $Userid];
-        return $this->db->runSQL($sql, $args)->fetch();
-    }
+{
+    $sql = "SELECT * FROM reviews WHERE Userid = :Userid";
+    $args = ['Userid' => $Userid];
+    return $this->db->runSQL($sql, $args)->fetchAll();
+}
+
 
     public function get_Review_by_id(int $id)
     {

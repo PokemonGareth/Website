@@ -31,18 +31,8 @@ $dbController = new DatabaseController($dsn, $username, $password);
 // Instantiates the Review controller
 $reviewController = new ReviewController($dbController);
 
-// Call the function to retrieve the row
-$row = $reviewController->get_Review_by_Userid($userId);
-
-// Check if row is not empty before accessing its elements
-if (!empty($row)) {
-    // Store the values received from the function into a list
-    $review = array(
-        'userId' => $row['Userid'],
-        'content' => $row['content'],
-        'stars' => $row['Stars']
-    );
-}
+// Call the function to retrieve the rows
+$rows = $reviewController->get_Review_by_Userid($userId);
 
 $title = 'Member Page'; 
 require __DIR__ . "/inc/header.php"; 
@@ -52,15 +42,16 @@ require __DIR__ . "/inc/header.php";
 
 <h1>View Your Reviews</h1>
 
-<?php if (!empty($review)): ?>
+<?php if (is_array($rows) && !empty($rows)): ?>
     <ul>
-        <li>
-            <h2><?php echo htmlspecialchars($review['userId']); ?></h2>
-            <p><?php echo htmlspecialchars($review['content']); ?></p>
-            <p><strong>Stars:</strong> <?php echo htmlspecialchars($review['stars']); ?>/5</p>
-            <td><a href="EditReview.php?id=<?php echo htmlspecialchars($review['userId']); ?>"><button type="button">Edit</button></a></td>
-            <td><a href="ConfirmdeleteReview.php?id=<?php echo htmlspecialchars($review['userId']); ?>"><button type="button">Delete</button></a></td>
-        </li>
+        <?php foreach ($rows as $row): ?>
+            <li>
+                <p><?php echo htmlspecialchars($row['Content']); ?></p>
+                <p><strong>Stars:</strong> <?php echo htmlspecialchars($row['Stars']); ?>/5</p>
+                <td><a href="EditReview.php?id=<?php echo htmlspecialchars($row['Userid']); ?>"><button type="button">Edit</button></a></td>
+                <td><a href="ConfirmdeleteReview.php?id=<?php echo htmlspecialchars($row['Userid']); ?>"><button type="button">Delete</button></a></td>
+            </li>
+        <?php endforeach; ?>
     </ul>
 <?php else: ?>
     <p>No reviews found for this user.</p>
