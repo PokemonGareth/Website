@@ -31,10 +31,15 @@ class ProductController {
         return $this->db->runSQL($sql)->fetchAll();
     }
 
-    public function update_product(array $product)
-    {
-        $sql = "UPDATE products SET name = :name, description = :description, price = :price, image = :image WHERE id = :id";
-        return $this->db->runSQL($sql, $product)->execute();
+    public function update_product($id, $name, $description, $price, $image) {
+        $sql = 'UPDATE products SET name = :name, description = :description, price = :price, image = :image WHERE id = :id';
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':name', $name);
+        $stmt->bindValue(':description', $description);
+        $stmt->bindValue(':price', $price);
+        $stmt->bindValue(':image', $image);
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
     }
 
     public function delete_product(int $id)

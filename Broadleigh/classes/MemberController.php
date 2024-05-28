@@ -29,10 +29,15 @@ class MemberController {
         return $this->db->runSQL($sql)->fetchAll();
     }
 
-    public function update_member(array $member)
-    {
-        $sql = "UPDATE users SET firstname = :firstname, lastname = :lastname, email = :email WHERE id = :id";
-        return $this->db->runSQL($sql, $member)->execute();
+    public function update_member($id, $firstname, $lastname, $email, $IsAdmin) {
+        $stmt = $this->db->prepare("UPDATE users SET firstname = :firstname, lastname = :lastname, email = :email, IsAdmin = :IsAdmin, modifiedOn = NOW() WHERE id = :id");
+        $stmt->execute([
+            ':firstname' => $firstname,
+            ':lastname' => $lastname,
+            ':email' => $email,
+            ':IsAdmin' => $IsAdmin,
+            ':id' => $id
+        ]);
     }
 
     public function delete_member(int $id)

@@ -59,6 +59,7 @@ try {
             echo '<td>' . htmlspecialchars($member['createdOn']) . '</td>';
             echo '<td>' . htmlspecialchars($member['modifiedOn']) . '</td>';
             echo '<td>' . htmlspecialchars($member['IsAdmin']) . '</td>';
+            echo '<td><a href="EditUser.php?id=' . htmlspecialchars($member['id']) . '"><button type="button">Edit</button></a></td>';
             echo '<td><a href="ConfirmdeleteUser.php?id=' . htmlspecialchars($member['id']) . '"><button type="button">Delete</button></a></td>';
             echo '</tr>';
         }

@@ -59,6 +59,7 @@ try {
             echo '<td>' . htmlspecialchars($product['description']) . '</td>';
             echo '<td>' . htmlspecialchars($product['price']) . '</td>';
             echo '<td><img src="' . htmlspecialchars($product['image']) . '" alt="Product Image" style="width:50px;height:50px;"></td>';
+            echo '<td><a href="EditProduct.php?id=' . htmlspecialchars($product['id']) . '"><button type="button">Edit</button></a></td>';
             echo '<td><a href="ConfirmdeleteProduct.php?id=' . htmlspecialchars($product['id']) . '"><button type="button">Delete</button></a></td>';
             echo '</tr>';
         }

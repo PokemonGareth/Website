@@ -56,6 +56,7 @@ try {
             echo '<td>' . htmlspecialchars($Review['Userid']) . '</td>';
             echo '<td>' . htmlspecialchars($Review['Content']) . '</td>';
             echo '<td>' . htmlspecialchars($Review['Stars']) . '</td>';
+            echo '<td><a href="EditReview.php?id=' . htmlspecialchars($Review['Id']) . '"><button type="button">Edit</button></a></td>';
             echo '<td><a href="ConfirmdeleteReview.php?id=' . htmlspecialchars($Review['Id']) . '"><button type="button">Delete</button></a></td>';
             echo '</tr>';
         }

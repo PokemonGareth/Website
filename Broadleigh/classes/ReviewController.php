@@ -31,10 +31,14 @@ class ReviewController {
         return $this->db->runSQL($sql)->fetchAll();
     }
 
-    public function update_Review(array $Review)
-    {
-        $sql = "UPDATE reviews SET Userid = :Userid, Content = :Content, Stars = :Stars WHERE Id = :Id";
-        return $this->db->runSQL($sql, $Review)->execute();
+    public function update_Review($id, $Userid, $Content, $Stars) {
+        $sql = 'UPDATE reviews SET Userid = :Userid, Content = :Content, Stars = :Stars WHERE Id = :Id';
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':Userid', $Userid);
+        $stmt->bindValue(':Content', $Content);
+        $stmt->bindValue(':Stars', $Stars);
+        $stmt->bindValue(':Id', $id);
+        $stmt->execute();
     }
 
     public function delete_Review(int $id)
