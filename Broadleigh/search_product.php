@@ -1,26 +1,8 @@
-<?php 
-session_start();
-
+<?php
 require_once 'inc/functions.php';
 require_once __DIR__ . '/classes/DatabaseController.php';
 require_once __DIR__ . '/classes/ProductController.php';
 
-$title = 'Search Products Page'; 
-require __DIR__ . "/inc/header.php"; 
-?>
-
-<section class="vh-100 text-center">
-    <div class="container py-5 h-75">
-
-<a href="product.php"><button type="button">Back</button></a>
-
-<h1>Search Products</h1>
-
-<input type="text" id="searchInput" placeholder="Search for products..." style="margin-bottom: 20px; padding: 10px; width: 80%;">
-<button type="button" onclick="searchProducts()" style="padding: 10px 20px;">Search</button>
-
-<div id="productTable">
-<?php
 $dsn = 'mysql:host=localhost;dbname=shop';
 $username = 'root';
 $password = '';
@@ -29,7 +11,8 @@ try {
     $dbController = new DatabaseController($dsn, $username, $password);
     $productController = new ProductController($dbController);
 
-    $products = $productController->get_all_products();
+    $searchQuery = isset($_GET['search']) ? $_GET['search'] : '';
+    $products = $productController->search_products($searchQuery);
 
     if (!empty($products)) {
         echo '<table>';
@@ -51,20 +34,3 @@ try {
     echo 'Connection failed: ' . $e->getMessage();
 }
 ?>
-</div>
-</div>
-</section>
-<?php require __DIR__ . "/inc/footer.php"; ?>
-<script>
-function searchProducts() {
-    var input = document.getElementById('searchInput').value;
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'search_products.php?search=' + encodeURIComponent(input), true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            document.getElementById('productTable').innerHTML = xhr.responseText;
-        }
-    };
-    xhr.send();
-}
-</script>

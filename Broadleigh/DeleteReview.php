@@ -25,7 +25,7 @@ try {
     // Deletes the Review by ID
     $ReviewController->delete_Review($ReviewID);
 
-    redirect('A-ViewReviews', ["success" => "Review deleted successfully"]);
+    redirect('member', ["success" => "Review deleted successfully"]);
 
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();

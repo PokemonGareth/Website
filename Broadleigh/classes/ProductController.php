@@ -50,6 +50,14 @@ class ProductController {
         return $this->db->runSQL($sql, $args)->execute();
     }
 
+    public function search_products($query) {
+        $stmt = $this->db->prepare('SELECT * FROM products WHERE name LIKE :query OR description LIKE :query');
+        $searchTerm = '%' . $query . '%';
+        $stmt->bindParam(':query', $searchTerm, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
 
 ?>

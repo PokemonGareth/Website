@@ -48,7 +48,7 @@ try {
         $ReviewController->update_Review($Review_id, $Userid, $Content, $Stars);
 
         // Redirect back to the view reviews page
-        header('Location: A-ViewReviews.php');
+        header('Location: member.php');
         exit;
     }
 
