@@ -31,6 +31,10 @@ if (isset($_SESSION['user'])) {
 
 <h1>View Reviews</h1>
 
+<!-- Add button to redirect to the form page for adding a new User -->
+<a href="AddReview.php"><button type="button">Add Review</button></a>
+
+
 <?php
 // Define your DSN, username, and password
 $dsn = 'mysql:host=localhost;dbname=shop';

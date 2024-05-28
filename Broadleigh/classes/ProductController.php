@@ -9,6 +9,7 @@ class ProductController {
         $this->db = $db;
     }
 
+    
     public function create_product(array $product) 
     {
         
