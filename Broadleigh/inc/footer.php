@@ -1,9 +1,9 @@
 
-<footer style="text-align: center;">
+<footer style="text-align: center; background-color: #9BB895;">
   <p>By GSearle Productions</p>
 
   <div id="Socials">
-    <table style="margin-left: auto; margin-right: auto; padding-left: 20px; padding-right: 20px;">
+    <table style="margin-left: auto; margin-right: auto; padding-left: 20px; padding-right: 20px; margin-bottom: 0px;">
       <tr>
         <td><p> Facebook </p></td>
         <td><p> X </p></td>

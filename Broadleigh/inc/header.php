@@ -8,9 +8,9 @@
     <title> <?= $title ?? 'Welcome' ?> </title>
   </head>
   
-  <body class="bg-primary">
+  <body style="background-image: url('../images/background_Image/FLOWERBG.jpg'); background-repeat: repeat; background-size: 400px;">
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <nav class="navbar navbar-expand-lg" style="background-color: #9BB895; color: #ffffff;">
   <div class="container-fluid">
     <a class="navbar-brand" href="./index.php">Broadleigh Gardens</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
