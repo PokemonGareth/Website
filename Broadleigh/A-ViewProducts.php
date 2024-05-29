@@ -22,7 +22,7 @@ if (isset($_SESSION['user'])) {
     redirect('login', ["error" => "You need to be logged in to view this page"]);
 }
 
-$title = 'Member Page'; 
+$title = 'ADMIN - View Products'; 
 require __DIR__ . "/inc/header.php"; 
 ?>
 

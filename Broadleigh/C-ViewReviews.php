@@ -34,7 +34,7 @@ $reviewController = new ReviewController($dbController);
 // Call the function to retrieve the rows
 $rows = $reviewController->get_Review_by_Userid($userId);
 
-$title = 'Member Page'; 
+$title = 'View Products'; 
 require __DIR__ . "/inc/header.php"; 
 ?>
 

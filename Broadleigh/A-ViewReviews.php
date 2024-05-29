@@ -20,7 +20,7 @@ if (isset($_SESSION['user'])) {
     redirect('login', ["error" => "You need to be logged in to view this page"]);
 }
 
-    $title = 'Review Page'; 
+    $title = 'ADMIN - View Reviews'; 
     require __DIR__ . "/inc/header.php"; 
 ?>
 

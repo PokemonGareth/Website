@@ -19,7 +19,7 @@ if (isset($_SESSION['user'])) {
     // Accesses user information stored in session
 }
 
-$title = 'Search Products Page'; 
+$title = 'Search Products'; 
 require __DIR__ . "/inc/header.php"; 
 ?>
 

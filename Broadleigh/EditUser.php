@@ -11,7 +11,7 @@ if (!isset($_SESSION['user'])) {
     redirect('login', ["error" => "You need to be logged in to view this page"]);
 }
 
-$title = 'Edit User'; 
+$title = 'ADMIN - Edit User'; 
 require __DIR__ . "/inc/header.php"; 
 
 // Gets the User ID from the URL

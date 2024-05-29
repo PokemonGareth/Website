@@ -11,7 +11,7 @@ if (!isset($_SESSION['user'])) {
     redirect('login', ["error" => "You need to be logged in to view this page"]);
 }
 
-$title = 'Edit Product'; 
+$title = 'ADMIN - Edit Product'; 
 require __DIR__ . "/inc/header.php"; 
 
 // Gets the product ID from the URL
