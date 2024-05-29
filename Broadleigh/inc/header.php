@@ -25,7 +25,15 @@
           <a class="nav-link" href="./member.php">Members</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./login.php"><i class="bi bi-person-circle" style="font-size: 2rem"></i></a>
+          <?php
+          if (isset($_SESSION['user'])) {
+            // User is logged in
+            echo '<a class="nav-link" href="./logout.php"><i class="bi bi-box-arrow-right" style="font-size: 2rem"></i> Logout</a>';
+          } else {
+            // User is not logged in
+            echo '<a class="nav-link" href="./login.php"><i class="bi bi-person-circle" style="font-size: 2rem"></i> Login</a>';
+          }
+          ?>
         </li>
       </ul>
     </div>

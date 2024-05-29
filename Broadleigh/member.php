@@ -40,6 +40,7 @@ if (isset($_SESSION['user']) && $_SESSION['user']['IsAdmin'] === '1') {
 } else {
     // User is NOT logged in and is an admin
     echo '<a href="C-ViewReviews.php"><button type="button">View Reviews</button></a>';
+    echo '<a href="C-EditUser.php"><button type="button">Edit Account</button></a>';
 }
 ?>
 </div>

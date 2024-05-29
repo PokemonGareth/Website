@@ -1,9 +1,15 @@
 
-<footer style="margin-left: auto; margin-right: auto;">
+<footer style="text-align: center;">
   <p>By GSearle Productions</p>
 
   <div id="Socials">
-
+    <table style="margin-left: auto; margin-right: auto; padding-left: 20px; padding-right: 20px;">
+      <tr>
+        <td><p> Facebook </p></td>
+        <td><p> X </p></td>
+        <td><p> Instagram </p></td>
+      </tr>
+    </table>
   </div>
 
   <p>Copyright 2024</p>

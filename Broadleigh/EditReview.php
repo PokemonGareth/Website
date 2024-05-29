@@ -59,7 +59,7 @@ try {
 
 <section class="vh-100 text-center">
     <div class="container py-5 h-75">
-        <a href="A-ViewReviews.php"><button type="button">Back</button></a>
+        <a href="member.php"><button type="button">Back</button></a>
         <h1>Edit Review</h1>
         <form method="post">
             <label for="Userid">User ID:</label><br>

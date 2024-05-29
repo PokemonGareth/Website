@@ -38,23 +38,31 @@ $title = 'Member Page';
 require __DIR__ . "/inc/header.php"; 
 ?>
 
+<section class="vh-100 text-center">
+    <div class="container py-5 h-75">
+
 <a href="member.php"><button type="button">Back</button></a>
 
 <h1>View Your Reviews</h1>
 
-<?php if (is_array($rows) && !empty($rows)): ?>
-    <ul>
-        <?php foreach ($rows as $row): ?>
-            <li>
-                <p><?php echo htmlspecialchars($row['Content']); ?></p>
-                <p><strong>Stars:</strong> <?php echo htmlspecialchars($row['Stars']); ?>/5</p>
-                <td><a href="EditReview.php?id=<?php echo htmlspecialchars($row['Userid']); ?>"><button type="button">Edit</button></a></td>
-                <td><a href="ConfirmdeleteReview.php?id=<?php echo htmlspecialchars($row['Userid']); ?>"><button type="button">Delete</button></a></td>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-<?php else: ?>
-    <p>No reviews found for this user.</p>
-<?php endif; ?>
+<a href="C-AddReview.php"><button type="button">Add Review</button></a>
 
+<?php if (is_array($rows) && !empty($rows)){
+        foreach ($rows as $row){
+            echo '<table>';
+            echo '<tr><th>Content</th><th>Stars</th></tr>';
+            echo '<td>' . htmlspecialchars($row['Content']) . '</td>';
+            echo '<td>' . htmlspecialchars($row['Stars']) . '/5</td>';
+            echo '<td><a href="EditReview.php?id=' . htmlspecialchars($row['Id']) . '"><button type="button">Edit</button></a></td>';
+            echo '<td><a href="ConfirmdeleteReview.php?id=' . htmlspecialchars($row['Id']) . '"><button type="button">Delete</button></a></td>';
+            echo '</tr>';
+            echo '</table>';
+        }
+    } else {
+            echo '<p>No Reviews found.</p>';
+        }
+?>
+
+    </div>
+</section>
 <?php require __DIR__ . "/inc/footer.php"; ?>
