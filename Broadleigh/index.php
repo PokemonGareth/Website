@@ -22,8 +22,12 @@ if (isset($_SESSION['user'])) {
     require __DIR__ . "/inc/header.php"; 
 ?>
 
-<section class="vh-100 text-center">
-    <div class="container py-5 h-75">
+<section class="text-center">
+    <div class="container py-5 h-75" style="background-color: #ffffff;">
+
+    <h2>About Us</h2>
+    <h2>Location</h2>
+    <h2>Top 4 Products</h2>
       <div class="row d-flex justify-content-center align-items-center h-100">
         <?php require __DIR__ . "/components/Top-products.php"; ?>
       </div>

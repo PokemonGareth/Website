@@ -25,7 +25,6 @@ if (isset($_SESSION['user'])) {
 ?>
 
 <section class="vh-100 text-center">
-<a href="logout.php"><button type="button">Logout</button></a>
     <div class="container py-5 h-75">
 
 <h1>Welcome <?= $_SESSION['user']['firstname'] ?? 'Member' ?>!</h1>

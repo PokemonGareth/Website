@@ -6,36 +6,54 @@
     <link href="./css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <title> <?= $title ?? 'Welcome' ?> </title>
+    <style>
+      button {
+          background-color: #74785F; /* Change button background color */
+          color: #fff;               /* Change button text color */
+          padding: 10px 20px;        /* Adjust padding */
+          border: none;              /* Remove border */
+          border-radius: 5px;        /* Add rounded corners */
+          cursor: pointer;           /* Change cursor to pointer */
+          transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+      }
+
+      button:hover {
+          background-color: #5a6268; /* Darken background color on hover */
+          color: #f8f9fa;            /* Lighten text color on hover */
+      }
+    </style>
   </head>
   
   <body style="background-image: url('../images/background_Image/FLOWERBG.jpg'); background-repeat: repeat; background-size: 400px;">
 
   <nav class="navbar navbar-expand-lg" style="background-color: #9BB895; color: #ffffff;">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="./index.php">Broadleigh Gardens</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="./product.php">Products</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./member.php">Members</a>
-        </li>
-        <li class="nav-item">
-          <?php
-          if (isset($_SESSION['user'])) {
-            // User is logged in
-            echo '<a class="nav-link" href="./logout.php"><i class="bi bi-box-arrow-right" style="font-size: 2rem"></i> Logout</a>';
-          } else {
-            // User is not logged in
-            echo '<a class="nav-link" href="./login.php"><i class="bi bi-person-circle" style="font-size: 2rem"></i> Login</a>';
-          }
-          ?>
-        </li>
-      </ul>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.php">Broadleigh Gardens</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="./product.php">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./member.php">Members</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <?php
+            if (isset($_SESSION['user'])) {
+              // User is logged in
+              echo '<a class="nav-link" href="./logout.php"><i class="bi bi-box-arrow-right" style="font-size: 2rem"></i> Logout</a>';
+            } else {
+              // User is not logged in
+              echo '<a class="nav-link" href="./login.php"><i class="bi bi-person-circle" style="font-size: 2rem"></i> Login</a>';
+            }
+            ?>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
