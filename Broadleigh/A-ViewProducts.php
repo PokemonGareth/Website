@@ -33,7 +33,7 @@ require __DIR__ . "/inc/header.php";
 
 <h1>View Products</h1>
 
-<a href="AddProduct.php"><button type="button">Add Product</button></a>
+<a href="components/AddProduct.php"><button type="button">Add Product</button></a>
 
 <?php
 $dsn = 'mysql:host=localhost;dbname=shop';

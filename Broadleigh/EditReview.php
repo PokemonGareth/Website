@@ -2,7 +2,7 @@
 // Starts the session
 session_start();
 
-require_once 'inc/functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/Broadleigh/inc/functions.php';
 require_once __DIR__ . '/classes/DatabaseController.php';
 require_once __DIR__ . '/classes/ReviewController.php';
 
