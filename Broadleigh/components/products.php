@@ -1,7 +1,7 @@
 <?php
 require_once './inc/functions.php';
 
- $products =$controllers->products()->get_all_products();
+ $products = $controllers->products()->get_all_products();
 
 foreach ($products as $product):
 ?>
@@ -13,7 +13,8 @@ foreach ($products as $product):
             <div class="card-body">
                 <h5 class="card-title"><?= $product['name'] ?></h5>
                 <p class="card-text"><?= $product['description'] ?></p>
-                <p class="card-text"><?= $product['price'] ?></p>
+                <p class="card-text">£<?= $product['price'] ?></p>
+                <a href="productdetail.php?id=<?= $product['id'] ?>" class="btn btn-primary">View Details</a>
             </div>
         </div>
     </div>

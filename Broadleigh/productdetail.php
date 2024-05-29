@@ -25,6 +25,7 @@ if (isset($_SESSION['user'])) {
 <section class="vh-100 text-center">
     <div class="container py-5 h-75">
       <div class="row d-flex justify-content-center align-items-center h-100">
+        <a href="product.php"><button type="button">Back</button></a>
         <?php require __DIR__ . "/components/product-details.php"; ?>
       </div>
     </div>
